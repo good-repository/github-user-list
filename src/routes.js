@@ -16,7 +16,7 @@ function Routes() {
                 headerStyle: { backgroundColor: '#7159c1' },
                 headerTintColor: '#fff',
             }}>
-                <Stack.Screen name="Main" component={Main} />
+                <Stack.Screen name="Usuários" component={Main} />
                 <Stack.Screen name="User" component={User} />
             </Stack.Navigator>
         </NavigationContainer>
