@@ -11,7 +11,7 @@ export const Form = styled.View`
   flex-direction: row;
   padding-bottom: 20px;
   border-bottom-width: 1px;
-  border-color: #eee;
+  border-color: lightgray;
 `;
 
 export const Input = styled.TextInput.attrs({
@@ -22,7 +22,7 @@ export const Input = styled.TextInput.attrs({
   background: lightgray;
   border-radius: 4px;
   padding: 0 15px;
-  border: 1px solid #eee;
+  border: 1px solid lightgray;
 `;
 
 export const SubmitButton = styled(RectButton)`
@@ -50,7 +50,7 @@ export const Avatar = styled.Image`
   width: 64px;
   height: 64px;
   border-radius: 32px;
-  background: #eee;
+  background: lightgray;
 `;
 
 export const Name = styled.Text`
