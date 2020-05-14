@@ -36,7 +36,7 @@ export default class User extends Component {
     load = async (page = 1) => {
         const { stars } = this.state
         const { route } = this.props
-        const user = route.params.user
+        const { user } = route.params
 
         const response = await api.get(`/users/${user.login}/starred`, { params: { page } });
 
@@ -54,17 +54,23 @@ export default class User extends Component {
         const nextPage = page + 1;
 
         this.load(nextPage);
-    };
+    }
 
     refreshList = () => {
         this.setState({ refreshing: true, stars: [] }, this.load);
-    };
+    }
+
+    handleNavigate = repository => {
+        const { navigation } = this.props;
+        
+        navigation.navigate('Repository', { repository });
+    }
 
     render() {
         const { route } = this.props
         const { stars, loading, refreshing } = this.state
 
-        const user = route.params.user
+        const { user } = route.params
 
         return (
             <Container>
@@ -83,7 +89,7 @@ export default class User extends Component {
                         onEndReached={this.loadMore}
                         keyExtractor={star => String(star.id)}
                         renderItem={({ item }) => (
-                            <Starred>
+                            <Starred onPress={() => this.handleNavigate(item)}>
                                 <OwnerAvatar source={{ uri: item.owner.avatar_url }} />
                                 <Info>
                                     <Title>{item.name}</Title>
